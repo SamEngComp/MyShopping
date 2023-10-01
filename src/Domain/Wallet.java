@@ -5,14 +5,23 @@ public class Wallet {
     // PROPERTIES
 
     private double totalBalance;
+    private boolean addedValue = false;
 
-    // GET AND SET
+    // METHODS
 
-    public double getTotalBalance() {
-        return totalBalance;
+    public void setOpeningBalance(double totalBalance) {
+        if (!addedValue) this.totalBalance = totalBalance;
+        else return;
+
+        addedValue = true;
     }
 
-    public void setTotalBalance(double totalBalance) {
-        this.totalBalance = totalBalance;
+    public void showDescriptionWallet() {
+        String description = String.format("""
+               ******************************
+               Total balance:  R$ %.2f
+               ******************************
+               """, this.totalBalance);
+        System.out.println(description);
     }
 }
